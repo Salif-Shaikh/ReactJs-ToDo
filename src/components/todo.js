@@ -1,7 +1,7 @@
-import react, { useState } from "react";
+import React, { useState } from "react";
 import Todoform from "./Todoform";
-import { RicloseCircleLine } from "react-icons/ri";
-import { TiEdit } from "react-icons/ti";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faTimesCircle, faPlusCircle} from "@fortawesome/free-solid-svg-icons"
 
 export default function Todo({ todos, completeTodo, removeTodo, UpdateTodo }) {
   const [edit, setEdit] = useState({
@@ -30,11 +30,13 @@ export default function Todo({ todos, completeTodo, removeTodo, UpdateTodo }) {
         {todo.text}
       </div>
       <div className="icons">
-        <RicloseCircleLine
+        <FontAwesomeIcon
+          icon={faTimesCircle}
           onClick={() => removeTodo(todo.id)}
           className="delete-icon"
         />
-        <TiEdit
+        <FontAwesomeIcon
+        icon={faPlusCircle}
           onClick={() => setEdit({ id: todo.id, value: todo.text })}
           className="edit-icon"
         />
